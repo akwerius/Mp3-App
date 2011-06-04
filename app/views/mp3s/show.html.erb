@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Url:</b>
+  <%= @mp3.url %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @mp3.title %>
+</p>
+
+<p>
+  <b>Artist:</b>
+  <%= @mp3.artist %>
+</p>
+
+<p>
+  <b>Length:</b>
+  <%= @mp3.length %>
+</p>
+
+<p>
+  <b>Score:</b>
+<%= @mp3.avg_reviews %>
+</p>
+
+<h2>Ratings</h2>
+<%= render :partial => "reviews/review",
+           :collection => @mp3.reviews %>
+           
+<h2>Add a rating:</h2>
+<%= form_for([@mp3, @mp3.reviews.build]) do |f| %>
+  <div class="field">
+    <%= f.label :reviewer %><br />
+    <%= f.text_field :reviewer %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %> (1-5)<br />
+    <%= f.text_field :rating %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+     <input type="hidden" name="Mp3[score]" value="<%= @mp3.avg_reviews %>" />
+<% end %>
+
+<%= link_to 'Edit', edit_mp3_path(@mp3) %> |
+<%= link_to 'Back', mp3s_path %>
