@@ -4,7 +4,7 @@
 
  <form action="/filter" method="GET">
 
-<%= select("Mp3", "Artist", {'Circadian Riddims' => 'Circadian Riddims', 'kwe' => 'kwe'}, { :prompt => 'Select Artist' }) %>
+<%= collection_select("Mp3", "Artist", Mp3.select("DISTINCT (artist)"), :artist, :artist, options={ :prompt => 'Select Artist' }, :class =>"filter") %>
 <%= select("Mp3", "Rating", {'*' => '1', '**' => '2', '***' => '3', '****' => '4', '*****' => '5'}, { :prompt => 'Select Minimum Rating' }) %>
 
 <br />
