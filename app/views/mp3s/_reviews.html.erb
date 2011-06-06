@@ -1,0 +1,8 @@
+<div class="review">
+<% new_or_existing = review.new_record? ? 'new' : 'existing' %> <% prefix = "mp3[#{new_or_existing}_review_attributes][]" %>
+<% fields_for prefix, rating do |review_form| -%>
+    <%= f.text_field :rating %>
+
+<%= link_to_function "remove", "$(this).up('.review').remove()" %>
+<% end -%>
+</div>

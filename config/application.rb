@@ -1,3 +1,5 @@
+config.action_view.JavaScript_expansions[:defaults] = %w(jquery rails application) 
+
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'

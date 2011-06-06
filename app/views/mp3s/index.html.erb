@@ -28,7 +28,7 @@
 
 <% @mp3s.each do |mp3| %>
   <tr>
-    <td><%= mp3.score %></td>
+    <td><%= (mp3.avg_reviews * 100).round()/100  %></td>
     <td><%= mp3.url %></td>
     <td><%= mp3.title %></td>
     <td><%= mp3.artist %></td>

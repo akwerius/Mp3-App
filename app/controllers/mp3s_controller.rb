@@ -11,6 +11,19 @@ class Mp3sController < ApplicationController
     end
   end
 
+
+  # GET /mp3s/rate
+  # GET /mp3s/rate.xml
+  def rate
+
+    @mp3 = Mp3.find(params[:id])
+    @review = @mp3.reviews.create(params[:review])
+    redirect_to mp3_path(@mp3)
+
+  end
+
+
+
   # GET /mp3s/filter
   # GET /mp3s/filter.xml
   def filter
@@ -21,12 +34,13 @@ class Mp3sController < ApplicationController
  	if (params[:Mp3][:Artist] && params[:Mp3][:Rating].empty?)
   		@filtered_mp3s = Mp3.by_artist(params[:Mp3][:Artist]).all
 	else
-	 if (params[:Mp3][:Artist].empty? && params[:Mp3][:Rating])  
+	 if (params[:Mp3][:Artist].empty? && !params[:Mp3][:Rating].empty?)  
 		@filtered_mp3s = Mp3.by_rating(params[:Mp3][:Rating]).all   
 	 else
   		@filtered_mp3s = Mp3.by_artist(params[:Mp3][:Artist]).by_rating(params[:Mp3][:Rating]).all	
 	 end
   	end
+
  end
 
 
@@ -42,7 +56,14 @@ class Mp3sController < ApplicationController
   # GET /mp3s/1.xml
   def show
     @mp3 = Mp3.find(params[:id])
+	file = Mp3.find(params[:id]) 
+	avg_rate = (@mp3.avg_reviews * 100).round()/100 
+	file.score = avg_rate 
+	file.save  
 
+# @mp3.avg_reviews.to_i 
+#	@review = @mp3.reviews.build
+	
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @mp3 }
@@ -53,7 +74,7 @@ class Mp3sController < ApplicationController
   # GET /mp3s/new.xml
   def new
     @mp3 = Mp3.new
-
+	
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @mp3 }
@@ -84,11 +105,12 @@ class Mp3sController < ApplicationController
   # PUT /mp3s/1
   # PUT /mp3s/1.xml
   def update
+	
     @mp3 = Mp3.find(params[:id])
 
     respond_to do |format|
       if @mp3.update_attributes(params[:mp3])
-        format.html { redirect_to(@mp3, :notice => 'Mp3 was successfully updated.') }
+        format.html { redirect_to(@mp3, :notice => 'Mp3 and reviews were successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

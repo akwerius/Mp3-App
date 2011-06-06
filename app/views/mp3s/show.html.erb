@@ -21,29 +21,31 @@
 </p>
 
 <p>
-  <b>Score:</b>
-<%= @mp3.avg_reviews %>
+  <b>Rating:</b>
+<%= @mp3.score  %>
+  <br/><small>(<%= @mp3.count_reviews %> reviews)</small>
 </p>
-
-<h2>Ratings</h2>
-<%= render :partial => "reviews/review",
-           :collection => @mp3.reviews %>
            
-<h2>Add a rating:</h2>
-<%= form_for([@mp3, @mp3.reviews.build]) do |f| %>
-  <div class="field">
-    <%= f.label :reviewer %><br />
-    <%= f.text_field :reviewer %>
-  </div>
-  <div class="field">
-    <%= f.label :rating %> (1-5)<br />
-    <%= f.text_field :rating %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-     <input type="hidden" name="Mp3[score]" value="<%= @mp3.avg_reviews %>" />
+<%= form_for @mp3 do |f| %>
+
+<h2>Reviews</h2>
+<div id="reviews">
+<%= render :partial => "reviews/review", :collection => @mp3.reviews %>
+</div>
+
 <% end %>
+
+<p>
+<%= render :partial => "mp3s/review" %>
+</p>
 
 <%= link_to 'Edit', edit_mp3_path(@mp3) %> |
 <%= link_to 'Back', mp3s_path %>
+
+<br /> <font color="white">
+params: <%= params.inspect %>
+<br />
+POST: <%= request.POST.inspect %>
+</font>
+<br />
+<%= link_to 'New Mp3', new_mp3_path %>
