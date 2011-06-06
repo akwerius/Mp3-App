@@ -1,22 +1,6 @@
 #EXTM3U
 <% @filtered_mp3s.each do |mp3| %>
-#EXTINF:<%= mp3.length %>,<%= mp3.artist %> - <%= mp3.title %><br />
+<p>#EXTINF:<%= mp3.length %>,<%= mp3.artist %> - <%= mp3.title %></p>
 <%= mp3.url %>
 <% end %>
 
-
-<br /> <font color="white">
-params: <%= params.inspect %>
-<br />
-Mp3_Artist:  <%= params[:Mp3][:Artist].inspect %>
-<br />
-Mp3_Rating:  <%= params[:Mp3][:Rating].inspect %>
-<br />
-iMp3_Artist:  <%= params[:iMp3_Artist].inspect %>
-<br />
-filtered_mp3s: <%= @filtered_mp3s.inspect %>
-<br />
-session: <%= session.inspect %>
-<br />
-</font><br />
-<br />
