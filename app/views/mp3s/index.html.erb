@@ -8,7 +8,6 @@
 <%= select("Mp3", "Rating", {'*' => '1', '**' => '2', '***' => '3', '****' => '4', '*****' => '5'}, { :prompt => 'Select Minimum Rating' }) %>
 
 <br />
-     <input type="hidden" name="filtered" value="yes" />
      <input type="submit" value="Filter" />
  </form>
 </div>
@@ -40,8 +39,4 @@
 
 </table>
 
-<br /> <font color="white">
-params: <%= params.inspect %>
-</font><br />
-<br />
 <%= link_to 'New Mp3', new_mp3_path %>
