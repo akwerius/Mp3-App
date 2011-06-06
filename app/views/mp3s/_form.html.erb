@@ -1,6 +1,21 @@
 <%= form_for @mp3 do |f| %>
-<h2>Reviews</h2>
-<div id="reviews">
-<%= render :partial => "reviews/review", :collection => @mp3.reviews %>
-</div>
+ <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :artist %><br />
+    <%= f.text_field :artist %>
+  </div>
+  <div class="field">
+    <%= f.label :length %><br />
+    <%= f.text_field :length %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
