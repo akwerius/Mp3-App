@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20110604153759) do
     t.string   "length"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.decimal  "score"
+    t.integer  "score"
   end
 
   create_table "ratings", :force => true do |t|
@@ -32,13 +32,6 @@ ActiveRecord::Schema.define(:version => 20110604153759) do
   create_table "reviews", :force => true do |t|
     t.string   "reviewer"
     t.integer  "rating"
-    t.integer  "mp3_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "stars", :force => true do |t|
-    t.string   "reviewer"
     t.integer  "mp3_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -20,6 +20,7 @@ Rortest::Application.routes.draw do
 
 match "/filter" => "mp3s#filter"
 match "/rate" => "mp3s#rate"
+match "/new" => "mp3s#new"
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

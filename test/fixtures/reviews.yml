@@ -1,11 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  reviewer: MyString
-  rating: 1
-  mp3: 
+  reviewer: p
+  rating: 2
+  mp3_id: 1
 
 two:
-  reviewer: MyString
-  rating: 1
-  mp3: 
+  reviewer: q
+  rating: 5
+  mp3_id: 3

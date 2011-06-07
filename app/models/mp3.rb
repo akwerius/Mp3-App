@@ -10,12 +10,16 @@ def avg_reviews
   @avg ? @avg : 0
 end
 
+def rate
+    @review = self.reviews.build
+	@review ? @review : nil
+end
 
 after_update :save_reviews
 
 def save_reviews 
 	reviews.each do |review|
-	review.save(false) 
+	review.save(:validate => false) 
 	end
 end
 
@@ -23,7 +27,7 @@ end
 
   validates :url,  :presence => true
   validates :title, :presence => true,
-                    :length => { :minimum => 5 }
+                    :length => { :minimum => 5, :message => "Title field required."  }
   validates_associated :reviews
 
   scope :by_artist, lambda {|artist| where(:artist => artist) unless artist.empty? }

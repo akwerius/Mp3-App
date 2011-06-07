@@ -5,27 +5,32 @@ one:
   title: 5 Minutes
   artist: kwe
   length: 244
+  id: 1
 
 two:
   url: http://be-at-ease.com/kwe/music/Rolla.mp3
   title: Rolla
   artist: kwe
   length: 187
+  id: 2
 
 three:
   url: http://be-at-ease.com/circa/audio/four-directions/3-Amen%20Ra%20(feat.%20Akwerius).mp3
   title: Amen Ra
   artist: Circadian Riddims
   length: 218
+  id: 3
 
 four:
   url: http://be-at-ease.com/circa/audio/four-directions/2-Spirit%20Mission%20(feat.%20Akwerius).mp3
   title: Spirit Mission
   artist: Circadian Riddims
   length: 211
+  id: 4
 
 five:
   url: http://be-at-ease.com/kwe/music/sonrise.mp3
   title: Sonrise
   artist: kwe
   length: 217
+  id: 5

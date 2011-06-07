@@ -1,9 +1,8 @@
 class CreateRatings < ActiveRecord::Migration
   def self.up
     create_table :ratings do |t|
-      t.integer :user_id
-      t.integer :article_id
-      t.integer :stars
+      t.integer :mp3_id
+      t.integer :rating
 
       t.timestamps
     end
