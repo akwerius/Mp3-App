@@ -1,14 +1,92 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Rortest</title>
+  <title>Freedom Hour Radio</title>
   <%= stylesheet_link_tag :all %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
+
+
+<script type="text/javascript" src="http://mediaplayer.yahoo.com/js"></script>
+
+<script type="text/javascript">
+    var YMPParams =
+    {
+        autoplay:true,
+        volume:0.5,
+        defaultalbumart:'http://i1.sndcdn.com/artworks-000006753887-yxfpjk-crop.jpg?2b64c8d'
+    }
+</script>
+<script type="text/javascript">
+<!--
+function MM_showHideLayers() { //v9.0
+var i,p,v,obj,args=MM_showHideLayers.arguments;
+for (i=0; i<(args.length-2); i+=3) with (document) if (getElementById && ((obj=getElementById(args[i]))!=null)) { v=args[i+2];
+if (obj.style) { obj=obj.style; v=(v=='show')?'visible':(v=='hide')?'hidden':v; }
+obj.visibility=v; }
+}
+-->
+</script>
+
 </head>
-<body style="background: #999999;">
+<body>
+<script type="text/javascript">
+         $(document).ready(function() {
+            $(".mediaplayerdialog").mediaplayer({
+               playlist:"playlist.xml"
+            });                    
+         });  	    
+      </script>
+
+<div id="join">
+</div>
+<br><br>
+<table class="files" > 
+  <tr>
+<td align="center"> 	          
+      <a href="/events" class="white"><strong><small>
+<script language="javascript">
+
+Today = new Date();
+TodayDay = Today.getDate();
+TodayMon = Today.getMonth();
+TodayYear = Today.getYear();
+
+if (TodayMon == 0) { TodayMonth = "January"; }
+else if (TodayMon == 1) { TodayMonth = "February"; }
+else if (TodayMon == 2) { TodayMonth = "March"; }
+else if (TodayMon == 3) { TodayMonth = "April"; }
+else if (TodayMon == 4) { TodayMonth = "May"; }
+else if (TodayMon == 5) { TodayMonth = "June"; }
+else if (TodayMon == 6) { TodayMonth = "July"; }
+else if (TodayMon == 7) { TodayMonth = "August"; }
+else if (TodayMon == 8) { TodayMonth = "September"; }
+else if (TodayMon == 9) { TodayMonth = "October"; }
+else if (TodayMon == 10) { TodayMonth = "November"; }
+else if (TodayMon == 11) { TodayMonth = "December"; }
+else { TodayMonth = TodayMon; }
+
+document.write(TodayMonth + " " + TodayDay + ", 2011");
+
+</script></small></strong>
+</a></td>
+</tr>
+<tr>
+<td>
+									<br />
+			    					<div id="nav" align="center" valign="top">
+					    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/mp3s" class="menu">Browse</a>&nbsp;&nbsp;&nbsp;
+					    <a href="" class="menu">Channel</a>&nbsp;&nbsp;&nbsp; 
+					    <a href="" class="menu">Voices</a>&nbsp;&nbsp;&nbsp;
+					    <a href="http://wordsoundlife.ning.com/groups" class="menu">Stream</a>&nbsp;&nbsp;&nbsp;
+					    <a href="/map" class="menu">Vision</a>&nbsp;&nbsp;&nbsp;
+					</div>
+</td>
+</tr>
+</table>
 
 <%= yield %>
+
 
 </body>
 </html>
